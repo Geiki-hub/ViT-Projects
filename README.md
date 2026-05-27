@@ -11,16 +11,17 @@ Identifying MYC status is essential for clinical risk stratification in DLBCL. T
 [Raw 120 WSIs] ➔ [Macenko Stain Normalization] ➔ [Lossless Compression] ➔ [463,200 Patches] ➔ [ViT Benchmarking]
 
 🛠️ Key Features & Pipeline
+
 Dataset Scale: Processes 463,200 patches extracted from 120 Whole-Slide Images (WSIs).
 
 Preprocessing: Includes automated Macenko stain normalization to eliminate laboratory staining variations alongside a lossless compression pipeline to preserve critical sub-cellular textures.
 
 Architectures Evaluated:
-Basic ViT
-Tokens-to-Token ViT (T2T-ViT)
-CLIP-ViT
-Swin Transformer (Shifted-Window Attention)
-Hierarchical ViT (Multi-Scale Feature Fusion)
+1. Basic ViT
+2. Tokens-to-Token ViT (T2T-ViT)
+3. CLIP-ViT
+4. Swin Transformer (Shifted-Window Attention)
+5. Hierarchical ViT (Multi-Scale Feature Fusion)
 
 Explainable AI (XAI): Built-in Grad-CAM visualization suite to map internal attention weights against expert-verified morphological landmarks.
 
