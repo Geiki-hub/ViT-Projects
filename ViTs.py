@@ -17,15 +17,8 @@ import os
 import cv2
 from PIL import Image
 
-# ------------------------
-# Global Settings
-# ------------------------
 Image.MAX_IMAGE_PIXELS = None
 
-
-# ------------------------
-# Vision Transformer Components
-# ------------------------
 class PatchEmbedding(nn.Module):
     def __init__(self, img_size=128, patch_size=16, in_channels=3, embed_dim=128):
         super().__init__()
@@ -85,9 +78,6 @@ class VisionTransformer(nn.Module):
         return self.mlp_head(self.norm(x[:, 0]))
 
 
-# ------------------------
-# Training & Evaluation Script
-# ------------------------
 def train_model(train_path, valid_path, test_path, output_path, epochs=100, batch_size=32):
     os.makedirs(output_path, exist_ok=True)
 
