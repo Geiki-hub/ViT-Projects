@@ -18,9 +18,6 @@ from sklearn.metrics import (
 )
 import multiprocessing
 
-# ============================
-# 1. Global Settings & Paths
-# ============================
 Image.MAX_IMAGE_PIXELS = None
 TRAIN_PATH = r"D:\TANG GEI KI\PHD DATASET SPLIT\2. TRAIN DATASET SPLIT\TRAINING (80%)"
 VALID_PATH = r"D:\TANG GEI KI\PHD DATASET SPLIT\2. TRAIN DATASET SPLIT\VALIDATION (10%)"
@@ -34,10 +31,6 @@ if not torch.cuda.is_available():
     raise RuntimeError("Non-CUDA environment detected. Swin requires a GPU.")
 device = torch.device("cuda")
 
-
-# ============================
-# 2. Grad-CAM Hook for Swin
-# ============================
 class SwinGradCAM:
     def __init__(self, model, target_layer):
         self.model = model
@@ -76,10 +69,6 @@ class SwinGradCAM:
         cam = F.relu(cam).cpu().numpy()
         return cam
 
-
-# ============================
-# 3. Training Logic
-# ============================
 def run_experiment():
     img_size = 224
     transform = transforms.Compose([
@@ -149,9 +138,6 @@ def run_experiment():
             best_val_loss = history["val_loss"][-1]
             torch.save(model.state_dict(), os.path.join(OUTPUT_PATH, "best_swin.pth"))
 
-    # ============================
-    # 4. Final Evaluation & Metrics
-    # ============================
     # 1. Loss/Acc Graph
     plt.figure(figsize=(12, 5))
     plt.subplot(1, 2, 1);
