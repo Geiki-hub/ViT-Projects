@@ -16,8 +16,6 @@ import cv2
 from PIL import Image
 
 
-# ----------------------------- Model Components -----------------------------
-
 class SoftSplit(nn.Module):
     def __init__(self, in_ch=3, patch_size=7, stride=4, proj_dim=64):
         super().__init__()
@@ -106,8 +104,6 @@ class VisionTransformer(nn.Module):
         x = self.norm(x)
         return self.head(x[:, 0])
 
-
-# ----------------------------- Main Execution -----------------------------
 
 def run_t2t_experiment():
     TRAIN_PATH = r'D:\TANG GEI KI\PHD DATASET SPLIT\2. TRAIN DATASET SPLIT\TRAINING (80%)'
